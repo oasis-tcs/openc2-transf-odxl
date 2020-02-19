@@ -96,6 +96,8 @@ OpenC2 producers and consumers do not authenticate or authorize each other direc
 ### 3.3.1 OpenC2 Publisher as a Dxl Client: 
 This section defines OpenDxl requirements that apply when the OpenC2 producer is a OpenDxl client. 
 	An OpenC2 producer may transfer messages over one of the two OpenDxl transport mechanisms
+	
+	
 	A. Event Messages : Messages for which the producer does not expect a response of any form back from the consumer. Event messages have the following fields :
 		a. destination_topic :  The service topic of an OpenC2 that producers intends to communicate to
 		b. message_type : 2 (MESSAGE_TYPE_EVENT)
@@ -112,15 +114,15 @@ This section defines OpenDxl requirements that apply when the OpenC2 producer is
 
 OpenC2 publisher messages over OpenDxl conform to OpenC2 language specification as below:
 
-	OpenC2 Spec	OpenDxl mapping
-	Content	Payload
-	Content_type	Split between topic name ( /openc2/{version}),  
-	Msg_type	 and content_type of command/{format}
-	Status 	Populated in response
-	Request_id	Message_id
-	Created	Created , automatically populated
-	From 	Combination of Source_client_id, source_broker_id, source_tenant_id
-	To 	Combination of Service_id , service name and service topic 
+| OpenC2 Spec | OpenDxl mapping |
+| --- | --- |
+| Content | Payload |
+| Content_type / Msg_type | Split between topic name ( /openc2/{version}), and content_type of command/{format} | 
+| Status | Populated in response |
+| Request_id | Message_id
+|Created | Created , automatically populated |
+| From | Combination of Source_client_id, source_broker_id, source_tenant_id |
+| To | Combination of Service_id , service name and service topic |
 
 ### 3.3.2 OpenC2 Consumer as OpenDxl service
 This section defines OpenDxl requirements that apply when the OpenC2 Consumer is an OpenDxl service
