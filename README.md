@@ -16,6 +16,18 @@ This repository is designed to support TC members' work on a formal specificatio
 </div>
 
 <div>
+<h3>Organization</h3>
+This repository is organized with three branches:
+
+* The _Working_ branch contains work product material that is actively being developed, and subject to potentially frequent and significant change. Contributors to the work product should target their inputs to the Working branch.
+
+* The _Releases_ branch contains incremental releases (i.e., Working Drafts) of the work product. The current contents of the Working branch are merged into the Releases branch to create a working WD. 
+
+* The _Master_ branch contains TC-approved [Committee Specification](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2018-05-22#dCommitteeSpec) (CS) and [OASIS Standard](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2018-05-22#dOASISstandard) versions of the work product. Until the first CS is approved, the Master branch will not contain a complete version of the work product.
+</div>
+
+
+<div>
 <h3>Contributions</h3>
 <p>As stated in this repository's <a href="https://github.com/oasis-tcs/openc2-transf-odxl/blob/master/CONTRIBUTING.md">CONTRIBUTING file</a>, contributors to this repository are expected to be Members of the OASIS OpenC2 TC, for any substantive change requests.  Anyone wishing to contribute to this GitHub project and <a href="https://www.oasis-open.org/join/participation-instructions">participate</a> in the TC's technical activity is invited to join as an OASIS TC Member.  Public feedback is also accepted, subject to the terms of the <a href="https://www.oasis-open.org/policies-guidelines/ipr#appendixa">OASIS Feedback License</a>.</p>
 </div>
