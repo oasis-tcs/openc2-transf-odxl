@@ -55,7 +55,7 @@ As described in [OpenC2-Lang-v1.0], transfer protocols must convey message eleme
 Topic : `/openc2/{version}/`
 More specifically, for version 1.0 of the openc2 language standards, v1_0 shall be used as version. Openc2 messages shall be published to topics starting with /openc2/v1_0
 
-Unless otherwise mentioned in the message definition, the default format for messages over OpenDXL shall be json. For any other serialization format, the field "content-type" of OpenDXL messaging MUST indicate the serialization used for the message. The specification does not mandate a serialization format as long as the consumer is able to successfully interpret the the serialization identifier.
+Unless otherwise mentioned in the message definition, the default format for messages over OpenDXL shall be JSON. For any other serialization format, the field "content-type" of OpenDXL messaging MUST indicate the serialization used for the message. The specification does not mandate a serialization format as long as the consumer is able to successfully interpret the the serialization identifier.
 
 OpenC2 communications over OpenDXL must use OpenDXL message version 3 or higher
 
@@ -101,7 +101,7 @@ This section defines OpenDXL requirements that apply when the OpenC2 producer is
 		a. destination_topic :  The service topic of an OpenC2 that producers intends to communicate to
 		b. message_type : 2 (MESSAGE_TYPE_EVENT)
 		c. message_id : A guid denoting the id of the message
-		d. content_type : Define the serialization format used. Default to json
+		d. content_type : Define the serialization format used. Default to JSON
 		e. payload :  Serialized data containing the openc2 command 
 		f. version :  OpenDXL message protocol version. MUST be 3 or greater
 		g. created : Timestamp in milliseconds since epoch
@@ -142,7 +142,7 @@ B. message_type : The numeric type of the message as defined by OpenDXL.
    a. MESSAGE_TYPE_REQUEST , with a numeric value of 0 : This message type MUST be used when the openC2 producer is expecting a response back from the consumer
    b. MESSAGE_TYPE_EVENT , with a numeric value of 2. This message type MUST be used when the openc2 producer is NOT expecting any response from the consumer
 
-C. content-type : The serialization formation used by the message. Defaults to json.
+C. content-type : The serialization formation used by the message. Defaults to JSON.
 
 D. message_id : An unique id associated with the message
 
