@@ -97,19 +97,32 @@ OpenC2 producers and consumers do not authenticate or authorize each other direc
 This section defines OpenDXL requirements that apply when the OpenC2 producer is a OpenDXL client. An OpenC2 producer may transfer messages over one of the two OpenDXL transport mechanisms
 	
 	
-	A. Event Messages : Messages for which the producer does not expect a response of any form back from the consumer. Event messages have the following fields :
-		a. destination_topic :  The service topic of an OpenC2 that producers intends to communicate to
+	A. Event Messages : Messages for which the producer does 
+	not expect a response of any form back from the consumer. 
+	Event messages have the following fields :
+		a. destination_topic :  The service topic of an 
+		OpenC2 that producers intends to communicate to
 		b. message_type : 2 (MESSAGE_TYPE_EVENT)
-		c. message_id : A guid denoting the id of the message
-		d. content_type : Define the serialization format used. Default to JSON
+		c. message_id : A GUID denoting the id of the message
+		d. content_type : Define the serialization format used.
+		Default to JSON
 		e. payload :  Serialized data containing the openc2 command 
-		f. version :  OpenDXL message protocol version. MUST be 3 or greater
+		f. version :  OpenDXL message protocol version. 
+		MUST be 3 or greater
 		g. created : Timestamp in milliseconds since epoch
 		
 		
-	B. Request Messages : Messages for which the producer expects a response back from the consumer. Request messages are an extension  of Event messages and carry the same message fields as event messages, other than the following differences:
+	B. Request Messages : Messages for which the producer 
+	expects a response back from the consumer. Request 
+	messages are an extension  of Event messages and carry 
+	the same message fields as event messages, other than 
+	the following differences:
 		A. message_type : 0 (MESSAGE_TYPE_REQUEST)
-		B. reply_to_topic : Openc2 producers that wish to process responses asynchronously may setup a dedicated and unique response topic and subscribe to it. This fields informs the OpenC2 consumers about the topic the responses should be sent to.
+		B. reply_to_topic : Openc2 producers that wish to 
+		process responses asynchronously may setup a dedicated 
+		and unique response topic and subscribe to it. 
+		This fields informs the OpenC2 consumers about 
+		the topic the responses should be sent to.
 
 OpenC2 publisher messages over OpenDXL conform to OpenC2 language specification as below:
 
