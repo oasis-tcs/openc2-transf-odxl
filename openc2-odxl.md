@@ -94,8 +94,7 @@ OpenC2 producers and consumers do not authenticate or authorize each other direc
 ## 3.3 Mapping OpenC2 constructs to  OpenDxl
 
 ### 3.3.1 OpenC2 Publisher as a Dxl Client: 
-This section defines OpenDxl requirements that apply when the OpenC2 producer is a OpenDxl client. 
-	An OpenC2 producer may transfer messages over one of the two OpenDxl transport mechanisms
+This section defines OpenDxl requirements that apply when the OpenC2 producer is a OpenDxl client. An OpenC2 producer may transfer messages over one of the two OpenDxl transport mechanisms
 	
 	
 	A. Event Messages : Messages for which the producer does not expect a response of any form back from the consumer. Event messages have the following fields :
@@ -133,17 +132,27 @@ The service MUST expose at least one topic. Topic names MUST be alphanumeric  an
 
 * Topic names are case sensitive
 * Topic name must not  exceed 65536 characters. 
-* A consumer may expose and arbitrary number of topics
+* A consumer may expose an arbitrary number of topics
 
 The following message fields must be populated when transferring open c2 commands to a consumer:
-1.  destination_topic : This is the topic that the consumer is active on. The topic name MUST begin with `/openc2/{version}/commands/*`
-1. message_type : The numeric type of the message as defined by OpenDxl. 
-   1. MESSAGE_TYPE_REQUEST , with a numeric value of 0 : This message type MUST be used when the openC2 producer is expecting a response back from the consumer
-   1. MESSAGE_TYPE_EVENT , with a numeric value of 2. This message type MUST be used when the openc2 producer is NOT expecting any response from the consumer
-1. content-type : The serialization formation used by the message. Defaults to json. 
-1. message_id  : An unique id associated with the message
-1. payload : Serialized data containing the openc2 message : Maps ton "content" message element 
-1. version  : Version of Dxl message specification. The minimum version required for openc2 over opendxl is version 3
-1. source_client_id : Identity of the client the message is from. This field is automatically populated by the OpenDxl broker. Corresponds to the "from" field of the message
-1. created:  Milliseconds since epoch
-1. Destination topic covers the to : field
+```
+A. destination_topic : This is the topic that the consumer is active on. The topic name MUST begin with /openc2/{version}/commands/*
+
+B. message_type : The numeric type of the message as defined by OpenDxl. 
+   a. MESSAGE_TYPE_REQUEST , with a numeric value of 0 : This message type MUST be used when the openC2 producer is expecting a response back from the consumer
+   b. MESSAGE_TYPE_EVENT , with a numeric value of 2. This message type MUST be used when the openc2 producer is NOT expecting any response from the consumer
+
+C. content-type : The serialization formation used by the message. Defaults to json.
+
+D. message_id : An unique id associated with the message
+
+E. payload : Serialized data containing the openc2 message : Maps to "content" message element 
+
+F. version : Version of Dxl message specification. The minimum version required for openc2 over opendxl is version 3
+
+G. source_client_id : Identity of the client the message is from. This field is automatically populated by the OpenDxl broker. Corresponds to the "from" field of the message
+
+H. created:  Milliseconds since epoch
+
+I. Destination topic covers the to: field
+```
