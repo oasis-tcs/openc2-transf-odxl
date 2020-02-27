@@ -93,7 +93,7 @@ OpenC2 producers and consumers do not authenticate or authorize each other direc
 
 ## 3.3 Mapping OpenC2 constructs to  OpenDXL
 
-### 3.3.1 OpenC2 Publisher as a Dxl Client: 
+### 3.3.1 OpenC2 Publisher as a DXL Client: 
 This section defines OpenDXL requirements that apply when the OpenC2 producer is a OpenDXL client. An OpenC2 producer may transfer messages over one of the two OpenDXL transport mechanisms
 	
 	
@@ -149,21 +149,33 @@ The service MUST expose at least one topic. Topic names MUST be alphanumeric  an
 
 The following message fields must be populated when transferring open c2 commands to a consumer:
 ```
-A. destination_topic : This is the topic that the consumer is active on. The topic name MUST begin with /openc2/{version}/commands/*
+A. destination_topic : This is the topic that the consumer 
+is active on. The topic name MUST begin with 
+/openc2/{version}/commands/*
 
-B. message_type : The numeric type of the message as defined by OpenDXL. 
-   a. MESSAGE_TYPE_REQUEST , with a numeric value of 0 : This message type MUST be used when the openC2 producer is expecting a response back from the consumer
-   b. MESSAGE_TYPE_EVENT , with a numeric value of 2. This message type MUST be used when the openc2 producer is NOT expecting any response from the consumer
+B. message_type : The numeric type of the message as defined 
+by OpenDXL. 
+   a. MESSAGE_TYPE_REQUEST , with a numeric value of 0 : This 
+   message type MUST be used when the openC2 producer is 
+   expecting a response back from the consumer
+   b. MESSAGE_TYPE_EVENT , with a numeric value of 2. This message 
+   type MUST be used when the openc2 producer is NOT expecting 
+   any response from the consumer
 
-C. content-type : The serialization formation used by the message. Defaults to JSON.
+C. content-type : The serialization formation used by the message. 
+Defaults to JSON.
 
 D. message_id : An unique id associated with the message
 
-E. payload : Serialized data containing the openc2 message : Maps to "content" message element 
+E. payload : Serialized data containing the openc2 message : Maps
+to "content" message element 
 
-F. version : Version of Dxl message specification. The minimum version required for openc2 over OpenDXL is version 3
+F. version : Version of DXL message specification. 
+The minimum version required for openc2 over OpenDXL is version 3
 
-G. source_client_id : Identity of the client the message is from. This field is automatically populated by the OpenDXL broker. Corresponds to the "from" field of the message
+G. source_client_id : Identity of the client the message is from.
+This field is automatically populated by the OpenDXL broker. 
+Corresponds to the "from" field of the message
 
 H. created:  Milliseconds since epoch
 
